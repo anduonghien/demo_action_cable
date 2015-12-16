@@ -1,2 +1,10 @@
-p
-  | This is chat
+form
+  | Name:
+  input#chat_name name="name" type="text" /
+  | Content:
+  input#chat_content name="content" type="text" /
+  button#send_chat type="button"  Send
+= javascript_include_tag 'chat'
+#content
+  table#chat_history
+    = render partial: 'message', collection: @messages
