@@ -4,12 +4,11 @@ module ApplicationCable
 
     def connect
       self.uuid = find_uuid
-      logger.add_tags 'ActionCable', uuid
     end
 
     protected
     def find_uuid
-      if uuid = cookies.signed[:uuid]
+      if uuid = Time.now.to_i
         uuid
       else
         reject_unauthorized_connection
